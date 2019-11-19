@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { AndroidesComponent } from './components/androides/androides.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { AndroidesService } from './service/androides.service';
+import { AndroideComponent } from './components/androide/androide.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    AndroidesComponent,
+    NavbarComponent,
+    AndroideComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AndroidesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
