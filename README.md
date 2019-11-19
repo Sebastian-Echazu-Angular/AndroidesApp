@@ -354,7 +354,7 @@ aca mostramos como deberia quedar la pagina luego de hacer todos los pasos anter
 ## Home
 ![captura de home](home.png)
 ## Personas
-![captura de androides](personas.png)
+![captura de androides](androides.png)
 ## About
 ![captura de about](about.png)
 
