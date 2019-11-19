@@ -349,11 +349,9 @@ agregamos al archivo styles.css animaciones para about
 ## 20 - Imagen de navbar
  agregamos a la carpeta assets/img el archivo angular.png
 
-# PRIMERA VERSION 
-aca mostramos como deberia quedar la pagina luego de hacer todos los pasos anteriores
 ## Home
 ![captura de home](home.png)
-## Personas
+## Androides
 ![captura de androides](androides.png)
 ## About
 ![captura de about](about.png)
