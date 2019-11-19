@@ -9,6 +9,7 @@ import { AndroidesComponent } from './components/androides/androides.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { AndroidesService } from './service/androides.service';
 import { AndroideComponent } from './components/androide/androide.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AndroideComponent } from './components/androide/androide.component';
     AboutComponent,
     AndroidesComponent,
     NavbarComponent,
-    AndroideComponent
+    AndroideComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,

@@ -448,27 +448,27 @@ agregamos el componente buscador
 ng g c components/buscador --spec false
 ```
 ## 30 - Modificar Service
-agregamos el metodo en service para que el componente pueda recibir un termino y asociarlo a un elemento de la collecion
+Agregamos el metodo en service para que el componente pueda recibir un termino y asociarlo a un elemento de la coleccion
 ```typescript
-public buscarPersonas(termino: string):Persona[] {
-    let personaArr: Persona[] = [];
+public buscarAndroide(termino: string):Androide[] {
+    let androideArr: Androide[] = [];
     termino = termino.toLowerCase();
-    for(let persona of this.personas){
-      let apellido = persona.apellido.toLowerCase();
+    for(let androide of this.androides){
+      let apellido = androide.apellido.toLowerCase();
       if (apellido.indexOf(termino) >= 0) {
-        personaArr.push(persona);
+        androideArr.push(androide);
       }
     }
-   return personaArr;
+   return androideArr;
   }
 ```
 ## 31 - Logica de Buscador
 agregamos el codigo para que podamos asociar al elemento buscador una logica
 ```typescript
 import { Component, OnInit } from '@angular/core';
-import { Persona } from 'src/app/interface/persona';
+import { Androide } from 'src/app/interface/androide';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PersonasService } from 'src/app/service/personas.service';
+import { AndroidesService } from 'src/app/service/androides.service';
 
 @Component({
   selector: 'app-buscador',
@@ -477,18 +477,18 @@ import { PersonasService } from 'src/app/service/personas.service';
 })
 export class BuscadorComponent implements OnInit {
 
-  personas: Persona[] = [];
+  androides: Androide[] = [];
   termino : string;
 
-  constructor(private activatedRoute:ActivatedRoute, private _personasService:PersonasService,private router:Router) { }
+  constructor(private activatedRoute:ActivatedRoute, private _androidesService:AndroidesService,private router:Router) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params=>{
       this.termino = params['termino'];
-      this.personas = this._personasService.buscarPersoonas(params['termino']);
+      this.androides = this._androidesService.buscarAndroide(params['termino']);
     });
   }
-  public verPersona(idx:number){ this.router.navigate(['/persona', idx]) }
+  public verAndroide(idx:number){ this.router.navigate(['/androide', idx]) }
 
 }
 ```
@@ -497,19 +497,19 @@ agregamos el codigo logico del buscador
 ``` typescript
 <h1>Buscando: {{termino}} </h1>
 <hr>
-<div class="row" *ngIf="personas.length == 0">
+<div class="row" *ngIf="androides.length == 0">
     <div class="col-md-12">
         <div class="alert alert-info" role="alert"> No existen resultados con el termino: {{termino}} </div>
     </div>
 </div>
 <div class="card-columns">
-    <div class="card animated fadeIn fast" *ngFor="let personaAux of personas; let i = index">
-        <img class="card-img-top" src="{{personaAux.avatar}}" [alt]="personaAux">
+    <div class="card animated fadeIn fast" *ngFor="let androideAux of androides; let i = index">
+        <img class="card-img-top" src="{{androideAux.avatar}}" [alt]="androideAux">
         <div class="card-body">
-            <h5 class="card-title">{{personaAux.nombre}}</h5>
-            <p class="card-text">{{personaAux.apellido}}</p>
-            <p class="card-text"> <small class="text-muted">{{personaAux.fechaNacimiento}}</small> </p>
-            <button (click)="verPersona(personaAux.id)" type="button" class="btn btn-outline-primary btn-block">Ver Mas</button>
+            <h5 class="card-title">{{androideAux.nombre}}</h5>
+            <p class="card-text">{{androideAux.apellido}}</p>
+            <p class="card-text"> <small class="text-muted">{{androideAux.fechaFabricacion}}</small> </p>
+            <button (click)="verAndroide(androideAux.id)" type="button" class="btn btn-outline-primary btn-block">Ver Mas</button>
         </div>
     </div>
 </div>
@@ -536,10 +536,11 @@ export class NavbarComponent {
 
   constructor(private router: Router) { }
 
-  buscarPersonas(textoBusqueda: string) {
+  buscarAndroides(textoBusqueda: string) {
     this.router.navigate(['/buscar', textoBusqueda]);
   }
 }
 ```
-# Captura de los componente de busqueda
+# Captura del Componente de busqueda
 
+![captura de buscador](buscador.png)

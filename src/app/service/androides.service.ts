@@ -100,4 +100,15 @@ export class AndroidesService {
       }
     }
   }
+  public buscarAndroide(termino: string):Androide[] {
+    let androideArr: Androide[] = [];
+    termino = termino.toLowerCase();
+    for(let androide of this.androides){
+      let apellido = androide.apellido.toLowerCase();
+      if (apellido.indexOf(termino) >= 0) {
+        androideArr.push(androide);
+      }
+    }
+   return androideArr;
+  }
 }
