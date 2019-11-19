@@ -390,7 +390,7 @@ agregamos el siguinte codigo a la pagina de androide .
 ```
 ## 24 - Imagen Amistad
 Agregamos a la carpeta assets/img el archivo amistad.png
-![imagen de amistad](assets/img/amistad.png)
+![imagen de amistad](src/app/assets/img/amistad.png)
 
 ## 25 - Logica de persona
 Agrego al archivo personas.service.ts el metodo para mostrar equipo por id
