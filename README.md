@@ -77,7 +77,6 @@ agregamos el siguiente codigo al html de navbar
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" routerLinkActive="active"> <a class="nav-link" [routerLink]="['home']">Home </a> </li>
             <li class="nav-item" routerLinkActive="active"> <a class="nav-link" [routerLink]="['androides']">Androides</a> </li>
-            <li class="nav-item" routerLinkActive="active"> <a class="nav-link" [routerLink]="['about']">About</a> </li>
         </ul>
         <form class="form-inline my-2 my-lg-0"> <input class="form-control mr-sm-2" type="text" placeholder="Buscar Androide" #buscarTexto> <button (click) = "buscarAndroides(buscarTexto.value)" class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar</button> 
         </form>
@@ -108,7 +107,7 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 ```
-no olvidar importar la instanciacion de los componentes
+no olvidar importar los componentes
 ## 11 - Routing en html
 agregamos al archivo appcomponent.html la estructura de la ruta
 ```html
@@ -127,21 +126,21 @@ ng g s service/androides --spec false
 agregamos a el servicio un conjunto de datos que vamos a utilizar en nuestra aplicacion y agregamos un metodo que nos retorne la lista completa de dato
 ```typescript
 import { Injectable } from '@angular/core';
-import { Persona } from '../interface/persona';
+import { Androide } from '../interface/androide';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonasService {
+export class AndroidesService {
 
     
-  private personas: Persona[] = [
+  private androides: Androide[] = [
     {
       id: 1,
       nombre: "Jorrie",
       apellido: "Beckley",
       amigo : true,
-      fechaNacimiento: "7/29/1986",
+      fechaFabricacion: "7/29/1986",
       avatar: "https://robohash.org/voluptatumestsint.jpg?size=250x250&set=set1"
     },
     {
@@ -149,7 +148,7 @@ export class PersonasService {
       nombre: "Felic",
       apellido: "Roiz",
       amigo : false,
-      fechaNacimiento: "6/22/1985",
+      fechaFabricacion: "6/22/1985",
       avatar: "https://robohash.org/magnamfugaminima.bmp?size=250x250&set=set1"
     },
     {
@@ -157,7 +156,7 @@ export class PersonasService {
       nombre: "Adelaida",
       apellido: "Clinnick",
       amigo : true,
-      fechaNacimiento: "1/23/1976",
+      fechaFabricacion: "1/23/1976",
       avatar: "https://robohash.org/impeditquislaborum.bmp?size=250x250&set=set1"
     },
     {
@@ -165,7 +164,7 @@ export class PersonasService {
       nombre: "Pauline",
       apellido: "Coulter",
       amigo : false,
-      fechaNacimiento: "6/25/1977",
+      fechaFabricacion: "6/25/1977",
       avatar: "https://robohash.org/repellatadvel.bmp?size=250x250&set=set1"
     },
     {
@@ -173,7 +172,7 @@ export class PersonasService {
       nombre: "Gilles",
       apellido: "Dyneley",
       amigo : true,
-      fechaNacimiento: "4/4/1989",
+      fechaFabricacion: "4/4/1989",
       avatar: "https://robohash.org/rerumveniamsit.jpg?size=250x250&set=set1"
     },
     {
@@ -181,7 +180,7 @@ export class PersonasService {
       nombre: "Zebadiah",
       apellido: "Hayhoe",
       amigo : false,
-      fechaNacimiento: "11/27/1986",
+      fechaFabricacion: "11/27/1986",
       avatar: "https://robohash.org/atinventoremaxime.bmp?size=250x250&set=set1"
     },
     {
@@ -189,7 +188,7 @@ export class PersonasService {
       nombre: "Lothaire",
       apellido: "Moreby",
       amigo : true,
-      fechaNacimiento: "11/11/1980",
+      fechaFabricacion: "11/11/1980",
       avatar: "https://robohash.org/laborumvoluptatemet.bmp?size=250x250&set=set1"
     },
     {
@@ -197,7 +196,7 @@ export class PersonasService {
       nombre: "Karl",
       apellido: "Hagart",
       amigo : false,
-      fechaNacimiento: "3/30/1985",
+      fechaFabricacion: "3/30/1985",
       avatar: "https://robohash.org/iureinut.jpg?size=250x250&set=set1"
     },
     {
@@ -205,7 +204,7 @@ export class PersonasService {
       nombre: "Tadio",
       apellido: "Vasyukhin",
       amigo : true,
-      fechaNacimiento: "3/12/1971",
+      fechaFabricacion: "3/12/1971",
       avatar: "https://robohash.org/velitetsunt.png?size=250x250&set=set1"
     },
     {
@@ -213,7 +212,7 @@ export class PersonasService {
       nombre: "Steward",
       apellido: "de la Tremoille",
       amigo : false,
-      fechaNacimiento: "7/11/1982",
+      fechaFabricacion: "7/11/1982",
       avatar: "https://robohash.org/quiadebitisvoluptate.bmp?size=250x250&set=set1"
     }
   ]
@@ -280,7 +279,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PersonasComponent } from './components/personas/personas.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-//importamos el servicio aca
+//importamos el servicio 
 import { PersonasService } from './service/personas.service';
 
 @NgModule({
@@ -295,7 +294,7 @@ import { PersonasService } from './service/personas.service';
     BrowserModule,
     AppRoutingModule
   ],
-  //y lo anexamos a providers
+  //Agregamos el servicio a providers
   providers: [PersonasService],
   bootstrap: [AppComponent]
 })
