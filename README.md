@@ -23,7 +23,7 @@ Este es un ejemplo como construir  una app  con angular. Describiré paso a paso
 
 # Consideraciones antes de comenzar
 
-Quiero aclarar que doy por descartado que en la pc esta instalado node.js o angular cli de todas formas en la sección **🛠️ Construido Con** están los enlaces para que puedan instalarlo
+Quiero aclarar que doy por descartado que en la pc esta instalado node.js o angular cli de todas formas en la sección **🛠️ Construido Con** están los enlaces para que puedan instalar las herramientas que les falten para ralizar este proyecto. En mi caso particular utilizo el editor de codigo "visual studio code" ya que me resulta mas comodo para trabajar.
 
 ## 1 - Crear el Proyecto
 
