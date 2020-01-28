@@ -7,7 +7,8 @@ Este es un ejemplo como construir  una app  con angular. Describiré paso a paso
 * [Angular](https://angular.io/) 
 * [HTML5](https://developer.mozilla.org/es/docs/HTML/HTML5) 
 * [Bootstrap](https://getbootstrap.com/) 
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) - Editor de código.
+* [Typora](https://www.typora.io/) - Redacción archivo .md.
 
 ## ✒️ Autor
 
@@ -17,19 +18,6 @@ Este es un ejemplo como construir  una app  con angular. Describiré paso a paso
 * [Instagram](https://www.instagram.com/seba_storm)
 * [Twitter](https://twitter.com/seba_storm)
 * [Github](https://github.com/SebastianEchazu)
-
-
-## 📄 Licencia 
-
-Este proyecto está bajo la Licencia **Creative Commons** - mira el enlace a la [licencia](**Creative Commons** ) para detalles
-
-## 🎁 Expresiones de Gratitud 
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ al autor.  🤓. 
-
----
-⌨️ con ❤️ por [Sebastian Echazu](https://github.com/SebastianEchazu) 😊
 
 ------
 
@@ -386,31 +374,45 @@ Agregamos al archivo [about.component.ts](https://github.com/Sebastian-Echazu-An
 }
 ```
 ## 20 - Imagen de navbar
- agregamos a la carpeta assets/img el archivo angular.png
+ Agregamos a la carpeta assets/img el archivo angular.png. Aqui [Enlace](https://angular.io/presskit) para descargarlo.
 
-## Home
+## Capturas de pantalla
+
+Home
+
 ![captura de home](home.png)
-## Androides
+
+Androides
+
 ![captura de androides](androides.png)
-## About
+
+About
+
 ![captura de about](about.png)
 
-# DETALLES
+
+
+------
+
+
+
+# SECCION DE DETALLES
+
 ## 21 - Componente de detalles
-agregamos un componente de detalles para poder detallar cada persona
+Agregamos un componente de detalles para poder detallar cada ítem de la lista.
 ```bash
 ng g c components/androide --spec false
 ```
 ## 22 - Routing de detalles
-agregamos al archivo de routing la pagina de detalles
+Agregamos al archivo de [app-routing.module.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/app-routing.module.ts) la pagina de detalles.
 ```typescript
-//importamos el componente persona
+//importamos el componente androide
 import { AndroideComponent } from './components/androide/androide.component';
-//componente de persona asociado a un id
+//componente de androide asociado a un id
 { path: 'androide/:id',component:AndroideComponent},
 ```
-## 23 Vista del componente Persona
-agregamos el siguinte codigo a la pagina de androide .
+## 23 - Vista del componente detalles
+Agregamos el siguiente código al archivo [androide.component.html](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/androide/androide.component.html) .
 ``` html
 <h1>Detalle de Androide </h1>
 <hr>
@@ -427,11 +429,8 @@ agregamos el siguinte codigo a la pagina de androide .
     </div>
 </div>
 ```
-## 24 - Imagen Amistad
-Agregamos a la carpeta assets/img el archivo amistad.png
-
-## 25 - Logica de persona
-Agrego al archivo personas.service.ts el metodo para mostrar equipo por id
+## 24 - Lógica de detalles
+Agrego al archivo [androides.service.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/service/androides.service.ts)  el método para mostrar el detalle por id.
 ``` typescript
 public getAndroideXId(idx: number): Androide {
     for (let androide of this.androides) {
@@ -441,17 +440,17 @@ public getAndroideXId(idx: number): Androide {
     }
   }
 ```
-## 26 - Componente Androides
+## 25 - Componente Androides
 
-agregamos el metodo al componente de detalle para habilitar el boton de mostrar el quipo
+Agregamos el método `verAndroide()` al archivo [androides.component.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/androides/androides.component.ts)  para habilitar el botón de mostrar el equipo.
 ``` typescript
-public verPersona(idx: number) {
-    this.router.navigate(['/persona', idx])
+public verAndroide(idx: number) {
+    this.router.navigate(['/androide', idx])
   }
 ```
-## 27 - Logica Componente Androide
+## 26 - Lógica de detalles en Service
 
-eliminamos el metodo oninit y instanciamos a nuestro service para obtener una persona
+Eliminamos el método oninit y instanciamos a nuestro service para obtener una persona
 ``` typescript
 import { Component, OnInit } from '@angular/core';
 import { Androide } from 'src/app/interface/androide';
@@ -475,16 +474,24 @@ export class AndroideComponent {
   }
 }
 ```
-# Pagina de Androide
+# Captura
+
+Detalles
+
 ![captura de androide](androide.png)
 
-## 29 - Componente buscador
-agregamos el componente buscador
+
+
+# SECCION DE DETALLES
+
+## 28 - Componente buscador
+
+Agregamos el componente buscador.
 ``` bash
 ng g c components/buscador --spec false
 ```
-## 30 - Modificar Service
-Agregamos el metodo en service para que el componente pueda recibir un termino y asociarlo a un elemento de la coleccion
+## 29 - Modificar Service
+Agregamos el método en [androides.service.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/service/androides.service.ts) para que el componente pueda recibir un termino y asociarlo a un elemento de la colección.
 ```typescript
 public buscarAndroide(termino: string):Androide[] {
     let androideArr: Androide[] = [];
@@ -498,8 +505,8 @@ public buscarAndroide(termino: string):Androide[] {
    return androideArr;
   }
 ```
-## 31 - Logica de Buscador
-agregamos el codigo para que podamos asociar al elemento buscador una logica
+## 30 - Lógica de Buscador
+Agregamos el código  al archivo [buscador.component.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/buscador/buscador.component.ts) para que podamos asociar al elemento buscador una lógica de búsqueda de ítems dentro de la colección.
 ```typescript
 import { Component, OnInit } from '@angular/core';
 import { Androide } from 'src/app/interface/androide';
@@ -528,8 +535,8 @@ export class BuscadorComponent implements OnInit {
 
 }
 ```
-## - 32 Vista de Buscador
-agregamos el codigo logico del buscador
+## 32  - Vista de Buscador
+Agregamos el al archivo [buscador.component.html](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/buscador/buscador.component.html) para poder mostrar los resultados de la búsqueda.
 ``` typescript
 <h1>Buscando: {{termino}} </h1>
 <hr>
@@ -550,15 +557,15 @@ agregamos el codigo logico del buscador
     </div>
 </div>
 ```
-## 33 - Modificamos el routing
-agregamos al routing del buscador 
+## 32 - Modificamos el routing
+Modificamos el archivo [app-routing.module.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/app-routing.module.ts) agregamos al routing del buscador 
 ```typescript
 import { BuscadorComponent } from './components/buscador/buscador.component';
 //componente que nos permite buscar por nombre
 { path: 'buscar/:termino', component: BuscadorComponent },
 ```
-## 34 - Modificamos Navbar
-modificamos el componente de navbar para habilitar la accion de buscar
+## 33 - Modificamos Navbar
+Modificamos el archivo [navbar.component.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/shared/navbar/navbar.component.ts) para habilitar la acción de buscar.
 ``` typescript
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -577,6 +584,31 @@ export class NavbarComponent {
   }
 }
 ```
-# Captura del Componente de busqueda
+# Captura 
+
+Buscador
 
 ![captura de buscador](buscador.png)
+
+
+
+# Conclusiones
+
+Recapitulando, hemos visto qué es desarrollar una app con Angular, cómo crear el esqueleto de una app, y una idea aproximada de para qué sirven los archivos y carpetas que crea por defecto. Como he dicho si que te recomiendo a que aprendas Angular porque es una apuesta segura de futuro. Con Angular vas a aprender además, Typescript, un lenguaje de programación que aporta muchas ventajas respecto a JavaScript plano.
+
+Te animo a que pruebes y cambies cosas del código para que vayas viendo como funciona Angular y Typescript. 
+
+
+
+------
+
+
+
+## 🎁 Expresiones de Gratitud 
+
+* Comenta a otros sobre este proyecto 📢
+* Invita una cerveza 🍺 o un café ☕ al autor.  🤓. 
+
+---
+
+⌨️ con ❤️ por [Sebastian Echazu](https://github.com/SebastianEchazu) 😊
