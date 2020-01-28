@@ -1,50 +1,94 @@
-# Proyecto de Angular 
-Este es un ejemplo proyecto con node.js en angular. describiremos paso a paso como crear una app sencilla de angular que nos permita un manejo sencillo de datos que se encuentrar en el modulo de services
+# Ejemplo de una App en Angular 
+Este es un ejemplo como construir  una app  con angular. Describiré paso a paso de manera sencilla  adjuntándole el código necesario para que funcione. En este ejemplo quiero mostrar una app sencilla que nos permita un manejo simple de datos que se encuentran en el modulo de services
+
+## 🛠️ Construido con :
+
+* [Node.js](https://nodejs.org/en/) 
+* [Angular](https://angular.io/) 
+* [HTML5](https://developer.mozilla.org/es/docs/HTML/HTML5) 
+* [Bootstrap](https://getbootstrap.com/) 
+* [Visual Studio Code](https://code.visualstudio.com/)
+
+## ✒️ Autor
+
+**Sebastián Echazú** 
+
+* [Facebook](https://www.facebook.com/sebastian.echazu.1)
+* [Instagram](https://www.instagram.com/seba_storm)
+* [Twitter](https://twitter.com/seba_storm)
+* [Github](https://github.com/SebastianEchazu)
+
+
+## 📄 Licencia 
+
+Este proyecto está bajo la Licencia **Creative Commons** - mira el enlace a la [licencia](**Creative Commons** ) para detalles
+
+## 🎁 Expresiones de Gratitud 
+
+* Comenta a otros sobre este proyecto 📢
+* Invita una cerveza 🍺 o un café ☕ al autor.  🤓. 
+
+---
+⌨️ con ❤️ por [Sebastian Echazu](https://github.com/SebastianEchazu) 😊
+
+------
+
+# Consideraciones antes de comenzar
+
+Quiero aclarar que doy por descartado que en la pc esta instalado node.js o angular cli de todas formas en la sección **🛠️ Construido Con** están los enlaces para que puedan instalarlo
 
 ## 1 - Crear el Proyecto
 
-Crear el proyecto de angular
+para crear el proyecto de angular abrimos una consola de Windows (cmd) y ejecutamos el siguiente comando en la carpeta donde se ubicara el proyecto.
 ```bash
 ng new AndroidApp
 ```
 ## 2 - Carpeta del proyecto
 
-Nos transladamos a la carpeta del proyecto que acabos de crear.
+Esperamos que se termine de crear el proyecto y nos trasladamos a la carpeta del proyecto que acabamos de crear.
 ```bash
 cd AndroidApp
 ```
 ## 3 - Corremos el proyecto 
 
-Corremos el proyecto de angular.
+Corremos el proyecto para verificar se creo de manera correcta. Crea un servidor de manera local que mantiene corriendo la app en paralelo al desarrollo. Esto no es muy útil al momento de desarrollar ya que nos permite visualizar los cambios de manera instantánea.
 
 ```bash
 ng serve -o
 ```
 ## 4 - Creamos componentes
 
-Creamos 3 compontes modelos  home, about y el main donde listaremos los datos (utilizaremos como ejemplo el nombre "datos").
+Abrimos de nuevo una consola ,nos aseguramos que estamos dentro de la carpeta del proyecto.  el comando para crear componentes es:
+
+```bash
+ng g c nombreComponente
+```
+
+Creamos 3 componentes:  home, about y el main donde listaremos los datos (utilizaremos para esta app como ejemplo el nombre "androides").
 
 ```bash
 ng g c component/home --spec false
 ng g c component/about --spec false
 ng g c component/androides --spec false
 ```
-## 5 - Creamos el navbar 
+Utilizo `--spec false` para eliminar la creación de archivo `spec.ts` que nos crea por defecto el framework (esto nos sirve para realizar test a los componentes).
 
-creamos el componente navbar como componente del proyecto.
+## 5 - Creamos el Navbar 
+
+Creamos el componente navbar. Este nos servirá para navegar dentro de nuestra aplicación.
 
 ```bash
 ng g c component/shared/navbar --spec false
 ```
 ## 6 - Crear interface
 
-creamos el interface con el modelo de datos. 
+Creamos el archivo interface androide. 
 
 ```bash
 ng g i interface/androide 
 ```
 ## 7 - Modelo
-En la interface de datos creamos nuestro modelo de datos para que pongamos utilizarlo en nuestro proyecto.
+En la interface de datos creamos nuestro modelo de datos para que podamos utilizarlo en nuestro proyecto.
 ```typescript
 export interface Androide {
     id: number,
@@ -55,17 +99,14 @@ export interface Androide {
     avatar: string
 }
 ```
-## 8 - Link de Boostrap
-agregamos al index los links de bootstrap
-```html
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
-integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+## 8 -  Bootstrap
+Instalamos en nuestro proyecto Bootstrap. En el siguiente [link](https://getbootstrap.com/docs/4.4/getting-started/introduction/) les dejo en enlace para poder hacerlo según la documentación oficial. Para este ejemplo lo hago de la siguiente manera copiando la carpeta de Bootstrap en una carpeta que creamos llamada /styles y luego creando la referencia en el archivo styles.css
+```css
+@import './styles/bootstrap-4.3.1-dist/css/bootstrap.min.css';
 ```
 ## 9 - Navbar
-agregamos el siguiente codigo al html de navbar
+
+Agregamos el siguiente código al archivo [navbar.component.html](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/shared/navbar/navbar.component.html) 
 ```html
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"> <img src="assets/img/angular.png" 
@@ -84,21 +125,20 @@ agregamos el siguiente codigo al html de navbar
 </nav>
 ```
 ## 10 - Routing
-agregamos al archivo del routing las rutas de nuestra app
+agregamos al archivo [app-routing.module.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/app-routing.module.ts) las rutas de nuestra app
 ```typescript
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './Component/home/home.component';
-import { PersonasComponent } from './Component/personas/personas.component';
-import { AboutComponent } from './Component/about/about.component';
-
+import { HomeComponent } from './components/home/home.component';
+import { AndroidesComponent } from './components/androides/androides.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent},
-  {path:'personas',component:PersonasComponent},
-  {path:'about',component:AboutComponent},
-  //ruta de comodin en caso de no encontrar la direccion
-  {path:'**',pathMatch:'full',redirectTo:'home'}
+  { path: 'home', component: HomeComponent },
+  { path: 'androides', component: AndroidesComponent },
+  { path: 'about', component: AboutComponent },
+   //ruta de comodin en caso de no encontrar la direccion
+  { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({
@@ -108,8 +148,8 @@ const routes: Routes = [
 export class AppRoutingModule { }
 ```
 no olvidar importar los componentes
-## 11 - Routing en html
-agregamos al archivo appcomponent.html la estructura de la ruta
+## 11 - Componentes de Navegación
+Agregamos al archivo [app.component.html](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/app.component.html) la estructura de la ruta
 ```html
 <app-navbar></app-navbar>
 <div class="container">
@@ -118,12 +158,12 @@ agregamos al archivo appcomponent.html la estructura de la ruta
 </div>
 ```
 ## 12 - Servicios
-creamos un servicio para poder utilizarlo en nuestro proyecto
+Creamos un servicio para poder utilizarlo en nuestro proyecto. El servicie es un archivo de typescript donde alojaremos los métodos que nos permiten el acceso a datos o cualquier otro servicio que nuestra app consuma
 ```bash
 ng g s service/androides --spec false
 ```
 ## 13 - Datos de la app
-agregamos a el servicio un conjunto de datos que vamos a utilizar en nuestra aplicacion y agregamos un metodo que nos retorne la lista completa de dato
+Agregamos al servicio un conjunto de datos que vamos a utilizar en nuestra aplicación y agregamos un método que nos retorne la lista completa de datos.
 ```typescript
 import { Injectable } from '@angular/core';
 import { Androide } from '../interface/androide';
@@ -224,7 +264,7 @@ export class AndroidesService {
 
 ```
 ## 14 - Tarjeta
-En el html de personas.html agregamos la tarjeta que por intermedio de un @ngfor utilizaremos para mostrar el conjunto de datos
+En el archivo  [androides.component.html](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/androides/androides.component.html) agregamos una la tarjeta que por intermedio de comando [@ngFor](https://angular.io/guide/displaying-data) nos permitirá  mostrar el conjunto de datos
 ```html
 <h1>Lista de Androides</h1>
 <div class="card-columns">
@@ -238,8 +278,8 @@ En el html de personas.html agregamos la tarjeta que por intermedio de un @ngfor
     </div>
 </div>
 ```
-## 15 - Logica de la información
-en el archivo androides.component.ts agregaremos el codigo nesesario y una inyeccion del servicio que nos proveera de los datos y metodos para ser mostrados
+## 15 - Lógica de la información
+En el archivo [androides.component.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/androides/androides.component.ts) agregaremos el código necesario y una inyección del servicio que nos proveerá de los datos y métodos para ser mostrados
 ```typescript
 import { Component, OnInit } from '@angular/core';
 import { AndroidesService } from 'src/app/service/androides.service';
@@ -268,7 +308,7 @@ export class AndroidesComponent implements OnInit {
 }
 ```
 ## 16 - Servicios
-agregamos a nuestro archivo app.module.ts el servicio
+Agregamos a nuestro archivo [app.module.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/app.module.ts) el service de nuestra app.
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -277,7 +317,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { PersonasComponent } from './components/personas/personas.component';
+import { AndroidesComponent } from './components/personas/personas.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 //importamos el servicio 
 import { PersonasService } from './service/personas.service';
@@ -287,7 +327,7 @@ import { PersonasService } from './service/personas.service';
     AppComponent,
     HomeComponent,
     AboutComponent,
-    PersonasComponent,
+    AndroidesComponent,
     NavbarComponent
   ],
   imports: [
@@ -295,14 +335,14 @@ import { PersonasService } from './service/personas.service';
     AppRoutingModule
   ],
   //Agregamos el servicio a providers
-  providers: [PersonasService],
+  providers: [AndroidesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
 
 ## 17 -  Home
-agregamos a home una plantilla de presentacion de nuestra app
+Agregamos a [home.component.html](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/home/home.component.html) una plantilla de presentación de nuestra app
 ```html
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -312,14 +352,14 @@ agregamos a home una plantilla de presentacion de nuestra app
 </div>
 ```
 ## 18 - About
-agregamos a About una plantilla de informacion
+Agregamos a [about.component.html](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/about/about.component.html) una plantilla de información. 
 ```html
-<h1 class="animated fadeIn fast">Ejemplo de Angular </h1>
+<h1 class="animated fadeIn fast">Ejemplo de una App sencilla</h1>
 <h3 class="animated fadeIn">Acceso a datos dentro de la app</h3>
-<h3 class="animated fadeIn">Sebastian Echazu</h3>
+<h3 class="animated fadeIn">Muestra una lista de androides</h3>
 ```
 ## 19 - Css para About
-agregamos al archivo styles.css animaciones para about
+Agregamos al archivo [about.component.ts](https://github.com/Sebastian-Echazu-Angular/AndroidesApp/blob/master/src/app/components/about/about.component.ts) animaciones para about.
 ```css
 .animated {
     -webkit-animation-duration: 1s;
