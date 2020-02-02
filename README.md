@@ -482,7 +482,7 @@ Detalles
 
 
 
-# SECCION DE DETALLES
+# SECCION BUSCADOR
 
 ## 28 - Componente buscador
 
