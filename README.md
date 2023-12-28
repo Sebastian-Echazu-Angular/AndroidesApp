@@ -14,9 +14,6 @@ Este es un ejemplo como construir  una app  con angular. Describiré paso a paso
 
 **Sebastián Echazú** 
 
-* [Facebook](https://www.facebook.com/sebastian.echazu.1)
-* [Instagram](https://www.instagram.com/seba_storm)
-* [Twitter](https://twitter.com/seba_storm)
 * [Github](https://github.com/SebastianEchazu)
 
 ------
