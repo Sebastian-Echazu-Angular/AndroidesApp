@@ -10,6 +10,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { AndroidesService } from './service/androides.service';
 import { AndroideComponent } from './components/androide/androide.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+// primeng
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BreadcrumbModule
   ],
   providers: [AndroidesService],
   bootstrap: [AppComponent]
