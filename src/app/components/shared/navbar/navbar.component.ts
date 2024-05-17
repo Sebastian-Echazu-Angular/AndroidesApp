@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { MenubarModule } from 'primeng/menubar';
 
 
 @Component({
   selector: 'app-navbar',
+  standalone: true,
+  imports: [MenubarModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
@@ -18,7 +21,11 @@ export class NavbarComponent {
 
   ngOnInit() {
 
-    this.items = [{ label: 'home' }, { label: 'androides' }, { label: 'About' }];
+    this.items = [
+      { label: 'home', routerLink: '/', icon: 'pi pi-home' },
+      { label: 'androides', routerLink: '/androides'  },
+      { label: 'About'  , routerLink: '/about' }
+    ];
 
     this.home = { icon: 'pi pi-home', routerLink: '/' };
 
