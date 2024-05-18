@@ -11,6 +11,5 @@ export const routes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'androide/:id', component: AndroideComponent },
     { path: 'buscar/:termino', component: BuscadorComponent },
-    //ruta de comodin en caso de no encontrar la direccion
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

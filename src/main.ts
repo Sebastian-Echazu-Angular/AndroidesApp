@@ -1,9 +1,8 @@
 
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { AndroidesService } from './app/service/androides.service';
+import { appConfig } from './app/app.config';
 
-bootstrapApplication(AppComponent, {
-    providers: [AndroidesService]
-})
+bootstrapApplication(AppComponent, appConfig
+)
   .catch(err => console.error(err));
