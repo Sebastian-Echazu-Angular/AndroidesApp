@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { Androide } from 'src/app/interface/androide';
 
 @Component({
-  selector: 'app-androides',
-  templateUrl: './androides.component.html',
-  styleUrls: ['./androides.component.css']
+    selector: 'app-androides',
+    templateUrl: './androides.component.html',
+    styleUrls: ['./androides.component.css'],
+    standalone: true
 })
 export class AndroidesComponent implements OnInit {
 

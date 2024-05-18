@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AndroidesService } from 'src/app/service/androides.service';
 
 @Component({
-  selector: 'app-buscador',
-  templateUrl: './buscador.component.html',
-  styleUrls: ['./buscador.component.css']
+    selector: 'app-buscador',
+    templateUrl: './buscador.component.html',
+    styleUrls: ['./buscador.component.css'],
+    standalone: true
 })
 export class BuscadorComponent implements OnInit {
 
