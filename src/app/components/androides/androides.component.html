@@ -1,15 +1,16 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-4" *ngFor="let androideAux of androides; let i = index">
-            <div class="card">
-                
-                <div class="card-body">
-                    <h5 class="card-title">Apellido: {{androideAux.apellido}} </h5>
-                    <p class="card-text">Nombre: {{androideAux.nombre}}</p>
-                    <button (click)="verAndroide(androideAux.id)" type="button"
-                        class="btn btn-outline-primary btn-block">Ver Mas</button>
-                </div>
-            </div>
+  <div class="row">
+    @for (androideAux of androides; track androideAux; let i = $index) {
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Apellido: {{androideAux.apellido}} </h5>
+            <p class="card-text">Nombre: {{androideAux.nombre}}</p>
+            <button (click)="verAndroide(androideAux.id)" type="button"
+            class="btn btn-outline-primary btn-block">Ver Mas</button>
+          </div>
         </div>
-    </div>
+      </div>
+    }
+  </div>
 </div>
