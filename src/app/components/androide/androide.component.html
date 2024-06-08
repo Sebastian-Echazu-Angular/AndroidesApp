@@ -1,23 +1,46 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-md-12">
       <h1>Detalle de Androide </h1>
       <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4" style="text-align: center">
+      <img [src]="androide.avatar" class="img-fluid" [alt]="androide.nombre"> <br><br>
+      <a [routerLink]="['/androides']" class="btn btn-outline-danger btn-block">Regresar</a>
+    </div>
+    <div class="col-md-8">
+      <h3 style="color: crimson">{{androide.nombre}}</h3>
+      <h3 style="color: blue;"> {{androide.apellido | uppercase}}</h3>
+      <hr>
+      <p><b>Fabricacion:</b> {{androide.fechaFabricacion}}</p>
+      <div> @if (androide.amigo) {
+        <img src="assets/img/amistad.png" alt="Amistad">
+        }
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4" style="text-align: center">
-        <img [src]="androide.avatar" class="img-fluid" [alt]="androide.nombre"> <br><br>
-        <a [routerLink]="['/androides']" class="btn btn-outline-danger btn-block">Regresar</a>
+  </div>
+</div> -->
+
+<p-card header="Detalle de Androide" subheader="Informacion del Androide" [style]="{'width': '360px'}">
+  <ng-template pTemplate="header">
+    <img [src]="androide.avatar" [alt]="androide.nombre">
+  </ng-template>
+
+  <p><b>Apellido:</b> {{androide.apellido}}</p>
+  <p><b>Nombre:</b> {{androide.nombre}}</p>
+  <p><b>Fabricacion:</b> {{androide.fechaFabricacion}}</p>
+
+  <div> @if (androide.amigo) {
+        <img src="assets/img/amistad.png" alt="Amistad">
+        }
       </div>
-      <div class="col-md-8">
-        <h3 style="color: crimson">{{androide.nombre}}</h3>
-        <h3 style="color: blue;"> {{androide.apellido | uppercase}}</h3>
-        <hr>
-          <p><b>Fabricacion:</b> {{androide.fechaFabricacion}}</p>
-          <div> @if (androide.amigo) {
-            <img src="assets/img/amistad.png" alt="Amistad">
-          } </div>
-        </div>
-      </div>
+
+  <ng-template pTemplate="footer">
+    <div class="flex gap-3 mt-1">
+       <p-button label="Volver" [routerLink]="['/androides']" icon="pi pi-arrow-left"></p-button>
     </div>
+  </ng-template>
+
+</p-card>

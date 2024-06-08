@@ -3,13 +3,16 @@ import { Androide } from 'src/app/interface/androide';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AndroidesService } from 'src/app/service/androides.service';
 import { UpperCasePipe } from '@angular/common';
+import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
-    selector: 'app-androide',
-    templateUrl: './androide.component.html',
-    styleUrls: ['./androide.component.css'],
-    standalone: true,
-    imports: [RouterLink, UpperCasePipe]
+  selector: 'app-androide',
+  templateUrl: './androide.component.html',
+  styleUrls: ['./androide.component.css'],
+  standalone: true,
+  imports: [RouterLink, UpperCasePipe, TableModule, CardModule, ButtonModule]
 })
 export class AndroideComponent implements OnInit {
 
@@ -17,7 +20,6 @@ export class AndroideComponent implements OnInit {
 
   constructor(private activatedRouted: ActivatedRoute, private _androidesService: AndroidesService) {
     this.activatedRouted.params.subscribe(params => {
-      console.log(params['id'])
       this.androide = this._androidesService.getAndroideXId(params['id'])
     })
   }

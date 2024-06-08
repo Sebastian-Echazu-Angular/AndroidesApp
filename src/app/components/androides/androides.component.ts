@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AndroidesService } from 'src/app/service/androides.service';
 import { Router } from '@angular/router';
+// service
 import { Androide } from 'src/app/interface/androide';
+//  prime ng
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
     selector: 'app-androides',
     templateUrl: './androides.component.html',
     styleUrls: ['./androides.component.css'],
+    imports: [TableModule , ButtonModule ],
     standalone: true
 })
 export class AndroidesComponent implements OnInit {
