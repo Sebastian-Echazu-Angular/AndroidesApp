@@ -30,6 +30,7 @@
     "@angular/compiler-cli": "~17.3.9",
     "@angular/language-service": "~17.3.9",
     "@types/node": "~20.10.5",
+    "angular-cli-ghpages": "^2.0.0",
     "typescript": "~5.2.2"
   }
 }
